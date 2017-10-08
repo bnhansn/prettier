@@ -77,6 +77,12 @@ const categoryOrder = [
  * Note: The options below are sorted alphabetically.
  */
 const detailedOptions = normalizeDetailedOptions({
+  "arrow-parens": {
+    type: "boolean",
+    category: CATEGORY_FORMAT,
+    forwardToApi: true,
+    description: "Enclose function parameters in parentheses."
+  },
   "bracket-spacing": {
     type: "boolean",
     category: CATEGORY_FORMAT,

@@ -493,7 +493,7 @@ function genericPrintNoParens(path, options, print, args) {
         parts.push("async ");
       }
 
-      if (canPrintParamsWithoutParens(n)) {
+      if (canPrintParamsWithoutParens(n, options)) {
         parts.push(path.call(print, "params", 0));
       } else {
         parts.push(
@@ -3177,7 +3177,7 @@ function printFunctionParams(path, print, options, expandArg, printTypeParams) {
   ]);
 }
 
-function canPrintParamsWithoutParens(node) {
+function canPrintParamsWithoutParens(node, options = {}) {
   return (
     node.params.length === 1 &&
     !node.rest &&
@@ -3187,7 +3187,8 @@ function canPrintParamsWithoutParens(node) {
     !node.params[0].comments &&
     !node.params[0].optional &&
     !node.predicate &&
-    !node.returnType
+    !node.returnType &&
+    !options.arrowParens
   );
 }
 
